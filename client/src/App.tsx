@@ -9,9 +9,12 @@ import LanguageSplash from "./components/LanguageSplash";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import CustomCursor from "./components/CustomCursor";
+import QuickDock from "./components/QuickDock";
 
 function Router() {
   return (
@@ -19,6 +22,7 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/services"} component={Services} />
       <Route path={"/projects"} component={Projects} />
+      <Route path={"/projects/:id"} component={ProjectDetail} />
       <Route path={"/team"} component={Team} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/about"} component={About} />
@@ -37,6 +41,8 @@ function App() {
           <TooltipProvider>
             <Toaster />
             <LanguageSplash />
+            <CustomCursor />
+            <QuickDock />
             <Router />
           </TooltipProvider>
         </ThemeProvider>

@@ -1,15 +1,15 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParticleField from '@/components/ParticleField';
 import { Briefcase, HardHat, Users } from 'lucide-react';
 import { useLang } from '@/context/LanguageContext';
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
+  visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, delay: i * 0.08 },
   }),
 };
 

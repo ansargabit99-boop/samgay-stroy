@@ -148,6 +148,7 @@ html {
 html, body, #root {
   overflow-x: hidden;
   width: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -156,12 +157,18 @@ body {
   background-color: var(--sand);
   color: var(--charcoal);
   line-height: 1.6;
+  min-width: 320px;
+  text-wrap: pretty;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* Responsive images */
 img { max-width: 100%; height: auto; display: block; }
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
 
 @media (max-width: 1024px) {
   .particle-field {
@@ -188,6 +195,16 @@ img { max-width: 100%; height: auto; display: block; }
   .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .mobile-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: var(--header-h-mobile);
   }
 }
 

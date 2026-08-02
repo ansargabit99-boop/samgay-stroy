@@ -4,6 +4,8 @@ import { Link } from 'wouter';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParticleField from '@/components/ParticleField';
+import BlueprintHeroCanvas from '@/components/BlueprintHeroCanvas';
+import LicenseModal from '@/components/LicenseModal';
 import { licensedScopes } from '@/data/licenseScope';
 import {
   SSG_LOGO, SSG_HERO_WORKER, SSG_HERO_HELMET,
@@ -40,7 +42,7 @@ function Counter({ value, suffix = '' }: { value: string; suffix?: string }) {
 
 const up = (i = 0) => ({
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, delay: i * 0.12 } },
 });
 
 export default function Home() {
@@ -59,6 +61,7 @@ export default function Home() {
         style={{ background: 'linear-gradient(155deg, #080808 0%, #141414 45%, #0b1628 100%)' }}>
         <div className="absolute inset-0 grid-texture-dark" />
         <ParticleField count={28} dark />
+        <BlueprintHeroCanvas />
 
         {/* Real hero photo — right side */}
         <div className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block">
@@ -279,6 +282,7 @@ export default function Home() {
               </motion.article>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -317,20 +321,29 @@ export default function Home() {
               <img src={SSG_HSE_DIAGRAM} alt="HSE Safety Health Wellbeing diagram" className="w-full h-full object-contain bg-white p-4" />
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-xl overflow-hidden"
-                style={{ border: '1px solid rgba(13,13,13,0.08)', boxShadow: '0 4px 20px rgba(0,0,0,0.08)' }}>
-                <img src={SSG_LICENSE_MAIN} alt="License document" className="w-full aspect-[3/4] object-contain bg-white p-2" />
-              </div>
-              <div className="rounded-xl p-5 flex flex-col justify-center"
-                style={{ background: 'linear-gradient(135deg, var(--charcoal), var(--steel))', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
-                <div className="font-mono text-xs mb-2" style={{ color: 'var(--ember)' }}>CATEGORY II LICENSE</div>
-                <div className="font-bold text-lg mb-1" style={{ fontFamily: 'Oswald, sans-serif', color: 'var(--sand)' }}>
-                  15-GSL №001485-1
+              <LicenseModal>
+                <div className="rounded-xl overflow-hidden cursor-pointer group relative border border-black/10 shadow-md">
+                  <img src={SSG_LICENSE_MAIN} alt="License document" className="w-full aspect-[3/4] object-contain bg-white p-2 group-hover:scale-105 transition-transform" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-mono font-bold">
+                    Проверить
+                  </div>
                 </div>
-                <div className="font-mono text-xs" style={{ color: 'rgba(247,243,234,0.45)' }}>
-                  Issued: 26.03.2024<br />BIN: 090340019007
+              </LicenseModal>
+              <LicenseModal>
+                <div className="rounded-xl p-5 flex flex-col justify-center cursor-pointer group border border-white/10 hover:border-[var(--ember)] transition-colors"
+                  style={{ background: 'linear-gradient(135deg, var(--charcoal), var(--steel))', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}>
+                  <div className="font-mono text-xs mb-2 text-[var(--ember)] flex items-center justify-between">
+                    <span>CATEGORY II LICENSE</span>
+                    <Shield size={14} />
+                  </div>
+                  <div className="font-bold text-lg mb-1" style={{ fontFamily: 'Oswald, sans-serif', color: 'var(--sand)' }}>
+                    15-GSL №001485-1
+                  </div>
+                  <div className="font-mono text-xs" style={{ color: 'rgba(247,243,234,0.45)' }}>
+                    Issued: 26.03.2024<br />BIN: 090340019007
+                  </div>
                 </div>
-              </div>
+              </LicenseModal>
             </div>
           </motion.div>
         </div>

@@ -1,16 +1,17 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ParticleField from '@/components/ParticleField';
 import { CheckCircle, Mail, MapPin, Phone, Send } from 'lucide-react';
 import { useLang } from '@/context/LanguageContext';
+import { COMPANY_CONTACT_EMAIL } from '@/data/presentationContent';
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
+  visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, delay: i * 0.08 },
   }),
 };
 
@@ -34,7 +35,7 @@ export default function Contact() {
       formData.message,
     ].join('\n');
 
-    window.location.href = `mailto:contract@samgau.kz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${COMPANY_CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', scope: '', message: '' });
     setTimeout(() => setSubmitted(false), 5000);
@@ -44,8 +45,8 @@ export default function Contact() {
     {
       icon: Mail,
       label: t.contact.email,
-      value: 'contract@samgau.kz',
-      href: 'mailto:contract@samgau.kz',
+      value: COMPANY_CONTACT_EMAIL,
+      href: `mailto:${COMPANY_CONTACT_EMAIL}`,
       note: t.contact.emailNote,
     },
     {

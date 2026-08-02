@@ -170,7 +170,7 @@ export default function Header() {
             className="overflow-hidden md:hidden"
             style={{ background: '#111', borderBottom: '1px solid rgba(247,243,234,0.08)' }}
           >
-            <div className="px-4 py-4 space-y-1">
+            <div className="px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
               {navItems.map((item, idx) => {
                 const isActive = location === item.href;
                 return (

@@ -13,7 +13,7 @@ import { useLang } from '@/context/LanguageContext';
 
 const up = (i = 0) => ({
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.09 } },
 });
 
 export default function About() {

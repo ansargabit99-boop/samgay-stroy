@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'wouter';
 import { ArrowUpRight, Mail, MapPin } from 'lucide-react';
 import { useLang } from '@/context/LanguageContext';
+import { COMPANY_CONTACT_EMAIL } from '@/data/presentationContent';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -94,7 +95,7 @@ export default function Footer() {
                 <div>
                   <div className="font-mono text-xs mb-0.5" style={{ color: 'rgba(247,243,234,0.4)' }}>{t.footer.regOffice.toUpperCase()}</div>
                   <div className="text-sm" style={{ color: 'rgba(247,243,234,0.65)' }}>
-                    Qabanbay Batyr Ave. 51/52, Astana
+                    {t.contact.regOfficeValue}
                   </div>
                 </div>
               </div>
@@ -110,11 +111,11 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Mail size={14} className="mt-0.5 shrink-0" style={{ color: 'var(--ember)' }} />
                 <a
-                  href="mailto:contract@samgau.kz"
+                  href={`mailto:${COMPANY_CONTACT_EMAIL}`}
                   className="text-sm transition-colors hover:text-ember"
                   style={{ color: 'rgba(247,243,234,0.65)' }}
                 >
-                  contract@samgau.kz
+                  {COMPANY_CONTACT_EMAIL}
                 </a>
               </div>
             </div>
