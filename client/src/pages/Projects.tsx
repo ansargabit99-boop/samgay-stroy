@@ -149,7 +149,7 @@ function ProjectChapter({
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: 0.4 }}
-              className="text-base leading-relaxed mb-6"
+              className="text-sm leading-relaxed mb-6 sm:text-base"
               style={{ color: 'rgba(247,243,234,0.65)', maxWidth: '30rem' }}
             >
               {project.details}
@@ -169,7 +169,7 @@ function ProjectChapter({
               ].map(({ Icon, text, label }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg sm:px-4"
                   style={{
                     background: 'rgba(247,243,234,0.06)',
                     border: '1px solid rgba(247,243,234,0.1)',
@@ -178,10 +178,10 @@ function ProjectChapter({
                 >
                   <Icon size={13} style={{ color: palette.accent }} />
                   <div>
-                    <div className="font-mono text-[9px] uppercase tracking-widest mb-0.5" style={{ color: 'rgba(247,243,234,0.38)' }}>
+                    <div className="font-mono text-[8px] uppercase tracking-widest mb-0.5 sm:text-[9px]" style={{ color: 'rgba(247,243,234,0.38)' }}>
                       {label}
                     </div>
-                    <div className="text-xs font-semibold" style={{ color: 'rgba(247,243,234,0.85)' }}>{text}</div>
+                    <div className="text-[11px] font-semibold sm:text-xs" style={{ color: 'rgba(247,243,234,0.85)' }}>{text}</div>
                   </div>
                 </div>
               ))}

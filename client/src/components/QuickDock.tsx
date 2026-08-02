@@ -39,7 +39,7 @@ export default function QuickDock() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9000] px-3 py-2 rounded-2xl flex flex-wrap items-center justify-center gap-2 backdrop-blur-xl border border-white/10 shadow-2xl max-w-[calc(100vw-1rem)] sm:max-w-none sm:rounded-full sm:px-4 sm:py-2.5 sm:gap-3"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9000] px-2 py-1.5 rounded-2xl flex items-center justify-center gap-1.5 backdrop-blur-xl border border-white/10 shadow-2xl max-w-[calc(100vw-0.75rem)] whitespace-nowrap overflow-hidden sm:rounded-full sm:px-4 sm:py-2.5 sm:gap-3"
           style={{
             background: 'rgba(15, 17, 21, 0.82)',
             boxShadow: '0 20px 50px rgba(0,0,0,0.5), 0 0 20px rgba(224, 58, 0, 0.15)',
@@ -49,7 +49,7 @@ export default function QuickDock() {
           <a
             href="tel:+77172570000"
             aria-label="Direct Phone Call"
-            className="p-2.5 rounded-full transition-colors text-zinc-300 hover:text-white hover:bg-white/10 flex items-center gap-2 text-xs font-mono group"
+            className="p-2 rounded-full transition-colors text-zinc-300 hover:text-white hover:bg-white/10 flex items-center gap-2 text-xs font-mono group shrink-0"
             title="Call SSG Office"
           >
             <Phone size={16} className="text-[var(--ember)] group-hover:scale-110 transition-transform" />
@@ -64,7 +64,7 @@ export default function QuickDock() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp Chat"
-            className="p-2.5 rounded-full transition-colors text-emerald-400 hover:bg-emerald-500/10 flex items-center gap-2 text-xs font-mono group"
+            className="p-2 rounded-full transition-colors text-emerald-400 hover:bg-emerald-500/10 flex items-center gap-2 text-xs font-mono group shrink-0"
             title="Chat on WhatsApp"
           >
             <MessageSquare size={16} className="group-hover:scale-110 transition-transform" />
@@ -79,7 +79,7 @@ export default function QuickDock() {
           <div className="relative">
             <button
               onClick={() => setLangMenuOpen(!langMenuOpen)}
-              className="p-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/10 flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase"
+              className="p-2 rounded-full text-zinc-300 hover:text-white hover:bg-white/10 flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase shrink-0"
             >
               <Globe size={14} className="text-[var(--ember)]" />
               <span>{lang}</span>
@@ -111,7 +111,7 @@ export default function QuickDock() {
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="p-2.5 rounded-full text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/10 transition-colors shrink-0"
             title="Scroll to Top"
           >
             <ChevronUp size={16} />
